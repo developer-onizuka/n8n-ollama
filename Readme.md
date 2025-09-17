@@ -41,6 +41,67 @@ vagrant ssh master
 git clone https://github.com/developer-onizuka/n8n-ollama
 cd n8n-ollama
 ```
+### 2-6. Confirm Kubernetes Cluster
+```
+kubectl get nodes
+```
+```
+$ kubectl get nodes
+NAME      STATUS   ROLES           AGE   VERSION
+master    Ready    control-plane   39m   v1.33.5
+worker1   Ready    node            38m   v1.33.5
+```
+### 2-7. Setup LoadBalancer
+Specify the range of IP addresses to be assigned to the load balancer.
+```
+kubectl apply -f metallb-ipaddress.yaml
+```
+### 2-8. Install CSI driver for NFS
+```
+./install-csi-driver.sh
+```
+### 2-9. Roll out StorageClass
+```
+kubectl apply -f storageclass-vm-nfs.yaml
+```
+```
+$ kubectl get sc
+NAME                   PROVISIONER      RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+nfs-vm-csi (default)   nfs.csi.k8s.io   Delete          Immediate           false                  45m
+```
+### 2-10. Roll out PV
+```
+kubectl apply -f pvc-nfs-ollama.yaml
+kubectl apply -f pvc-nfs-n8n.yaml
+```
+```
+$ kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                    STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+pvc-1635a8fa-56e5-4e6e-9064-0ce146479d64   20Gi       RWX            Delete           Bound    default/pvc-nfs-ollama   nfs-vm-csi     <unset>                          13s
+pvc-80ed6ee3-0216-4671-b7cf-97b6f85b2ba7   5Gi        RWX            Delete           Bound    default/pvc-nfs-n8n      nfs-vm-csi     <unset>
+```
+### 2-11. Roll out Ollama & n8n
+```
+kubectl apply -f ollama.yaml
+kubectl apply -f n8n.yaml
+```
+```
+$ kubectl get pods -o wide
+NAME                      READY   STATUS    RESTARTS   AGE     IP              NODE      NOMINATED NODE   READINESS GATES
+n8n-5967965bc6-zwg7n      1/1     Running   0          3m29s   10.10.235.131   worker1   <none>           <none>
+ollama-6c988c64c6-gzsck   1/1     Running   0          4m38s   10.10.235.130   worker1   <none>           <none>
+```
+### 2-12. Confirm Services
+```
+kubectl get services
+```
+```
+$ kubectl get services -o wide
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP    PORT(S)          AGE     SELECTOR
+kubernetes   ClusterIP      10.96.0.1       <none>         443/TCP          48m     <none>
+svc-n8n      LoadBalancer   10.96.251.15    192.168.33.2   5678:31211/TCP   4m13s   app=n8n
+svc-ollama   ClusterIP      10.104.132.75   <none>         11434/TCP        5m22s   app=ollama
+```
 
 
 
