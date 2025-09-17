@@ -102,13 +102,31 @@ kubernetes   ClusterIP      10.96.0.1       <none>         443/TCP          48m 
 svc-n8n      LoadBalancer   10.96.251.15    192.168.33.2   5678:31211/TCP   4m13s   app=n8n
 svc-ollama   ClusterIP      10.104.132.75   <none>         11434/TCP        5m22s   app=ollama
 ```
+# 3. Download the model in Ollama as n8n backend
+```
+kubectl exec -it <your-ollama-pod-name> -- ollama pull gemma3:1b
+```
+```
+$ kubectl exec -it pods/ollama-6c988c64c6-gzsck -- ollama pull gemma3:1b
+pulling manifest 
+pulling 7cd4618c1faf: 100% ▕██████████████████████████████████████▏ 815 MB                         
+pulling e0a42594d802: 100% ▕██████████████████████████████████████▏  358 B                         
+pulling dd084c7d92a3: 100% ▕██████████████████████████████████████▏ 8.4 KB                         
+pulling 3116c5225075: 100% ▕██████████████████████████████████████▏   77 B                         
+pulling 120007c81bf8: 100% ▕██████████████████████████████████████▏  492 B                         
+verifying sha256 digest 
+writing manifest 
+success 
+```
+# 4. Create Workflow with n8n
+### 4-1. Click Create Workflow
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-create-workflow.png" width="720">
 
+### 4-2. Add first step
 
 
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-ollama.png" width="720">
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-model.png" width="720">
 
 
-```
-$ kubectl exec -it <your-ollama-pod-name> -- ollama pull gemma3:1b
-```
+
