@@ -4,7 +4,7 @@
 mac book air m3/m4 (above 24GB memory)<br>
 
 # 1. Goal
-We will run Local LLM on Kubernetes and create an AI Agent using it using n8n.
+We will run Local LLM on Kubernetes and create an Workflow for AI Agent using it using n8n.
 
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-agent.png" width="960">
 
@@ -123,9 +123,16 @@ success
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-create-workflow.png" width="720">
 
 ### 4-2. Add first step
-
+Drow like below:<br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-myflow.png" width="720">
+
+Select the Ollama Chat Model.
+
+Set the following:
+Model: "gemma3:1b"
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-ollama.png" width="720">
+
+Credentials to connect with: See image below
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-model.png" width="720">
 
 
