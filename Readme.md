@@ -124,7 +124,7 @@ success
 
 ### 4-2. Add first step
 
-
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-myflow.png" width="720">
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-ollama.png" width="720">
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-model.png" width="720">
 
