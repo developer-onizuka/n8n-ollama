@@ -133,6 +133,10 @@ Model: "gemma3:1b"<br>
 Credentials to connect with: See image below<br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-ollama.png" width="720">
 
+# 5. Testing your workflow
+Type message and send it. So, you can find the picture as following and it means your workfrow works:<br>
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-prompt.png" width="720">
+
 
 
 
