@@ -63,11 +63,13 @@ kubectl apply -f metallb-ipaddress.yaml
 ### 2-9. Roll out StorageClass
 ```
 kubectl apply -f storageclass-vm-nfs.yaml
+kubectl apply -f storageclass-vm-nfs-n8n.yaml
 ```
 ```
 $ kubectl get sc
-NAME                   PROVISIONER      RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
-nfs-vm-csi (default)   nfs.csi.k8s.io   Delete          Immediate           false                  45m
+NAME                       PROVISIONER      RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+nfs-vm-csi (default)       nfs.csi.k8s.io   Delete          Immediate           false                  8s
+nfs-vm-csi-n8n (default)   nfs.csi.k8s.io   Delete          Immediate           false                  6s
 ```
 ### 2-10. Roll out PV
 ```
@@ -76,9 +78,9 @@ kubectl apply -f pvc-nfs-n8n.yaml
 ```
 ```
 $ kubectl get pv
-NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                    STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
-pvc-1635a8fa-56e5-4e6e-9064-0ce146479d64   20Gi       RWX            Delete           Bound    default/pvc-nfs-ollama   nfs-vm-csi     <unset>                          13s
-pvc-80ed6ee3-0216-4671-b7cf-97b6f85b2ba7   5Gi        RWX            Delete           Bound    default/pvc-nfs-n8n      nfs-vm-csi     <unset>
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                    STORAGECLASS     VOLUMEATTRIBUTESCLASS   REASON   AGE
+pvc-6614e902-7abc-4865-acc9-f2420f338daa   5Gi        RWX            Delete           Bound    default/pvc-nfs-n8n      nfs-vm-csi-n8n   <unset>                          66s
+pvc-8b0667ba-1848-40e5-89f5-0ecaaa0c901d   20Gi       RWX            Delete           Bound    default/pvc-nfs-ollama   nfs-vm-csi       <unset>                          4s
 ```
 ### 2-11. Roll out Ollama & n8n
 ```
