@@ -94,7 +94,7 @@ n8n-5967965bc6-zwg7n      1/1     Running   0          3m29s   10.10.235.131   w
 ollama-6c988c64c6-gzsck   1/1     Running   0          4m38s   10.10.235.130   worker1   <none>           <none>
 ```
 
-If you find the error below, you might need to do "sudo chown -R 1000:1000 /home/vagrant/exports-n8n" on your NFS server before applying n8n.yaml.
+If you find the error below, you might need to do "**sudo chown -R 1000:1000 /home/vagrant/exports-n8n**" on your NFS server before applying n8n.yaml.
 ```
 $ kubectl logs n8n-5967965bc6-zwg7n 
 No encryption key found - Auto-generating and saving to: /home/node/.n8n/config
