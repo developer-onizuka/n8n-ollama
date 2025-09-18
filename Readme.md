@@ -133,18 +133,18 @@ success
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-create-workflow.png" width="720">
 
 ### 4-2. Add first step
-Drow like below and select the Ollama Chat Model.:<br>
+Drow like below and select the Ollama Chat Model.:<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-myflow.png" width="720">
 
 Set the following:
-Model: "gemma3:1b"<br>
+Model: "gemma3:1b"<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-model.png" width="720">
 
-Credentials to connect with: See image below<br>
+Credentials to connect with: See image below<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-ollama.png" width="720">
 
 # 5. Testing your workflow
-Type message and send it. So, you can find the picture as following and it means your workfrow works:<br>
+Type message and send it. So, you can find the picture as following and it means your workfrow works:<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-prompt.png" width="720">
 
 # 6. Google Search Agent
