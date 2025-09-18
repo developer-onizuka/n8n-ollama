@@ -149,20 +149,19 @@ Type message and send it. So, you can find the picture as following and it means
 
 # 6. Google Search Agent
 
-I'll begin by explaining how LLMs and tools work together.
-Many LLMs, especially modern models like GPT-4 and Gemini, support a feature called Function Calling or Tool Calling. Here's how this process works:<br>
-First, in an n8n AI agent node, you connect tool nodes such as SerpApi. This action tells the LLM about the tool's functions (e.g., Google Search) and its required arguments (e.g., a query).<br>
-The n8n node then sends the user's input (e.g., "What's the current temperature?") along with the defined tool information to the LLM. The LLM analyzes the prompt and determines that this is a question requiring an external search.<br>
+ I'll begin by explaining how LLMs and tools work together.Many LLMs, especially modern models like GPT-4 and Gemini, support a feature called Function Calling or Tool Calling. Here's how this process works:<br>
+ First, in an n8n AI agent node, you connect tool nodes such as SerpApi. This action tells the LLM about the tool's functions (e.g., Google Search) and its required arguments (e.g., a query).<br>
+ The n8n node then sends the user's input (e.g., "What's the current temperature?") along with the defined tool information to the LLM. The LLM analyzes the prompt and determines that this is a question requiring an external search.<br>
 Next, instead of generating a direct answer, the LLM produces special JSON data or text. This data takes the form of an instruction to "call the Google Search tool with 'current temperature' as the query."<br>
-Afterward, the n8n AI agent node interprets the JSON from the LLM. It recognizes that the LLM has decided a tool should be called. The n8n node then uses the specified tool (SerpApi) and arguments (query: 'current temperature') to actually perform the Google search.<br>
-Once the Google search results are retrieved, the n8n node sends those results back to the LLM.<br>
-Finally, the LLM uses the provided search results to generate a final answer that is natural and easy for the user to understand (e.g., "The current temperature in Tokyo is...").<br>
+ Afterward, the n8n AI agent node interprets the JSON from the LLM. It recognizes that the LLM has decided a tool should be called. The n8n node then uses the specified tool (SerpApi) and arguments (query: 'current temperature') to actually perform the Google search.<br>
+ Once the Google search results are retrieved, the n8n node sends those results back to the LLM.<br>
+ Finally, the LLM uses the provided search results to generate a final answer that is natural and easy for the user to understand (e.g., "The current temperature in Tokyo is...").<br>
 
-最初に、LLMとツールの連携の仕組みについて説明します。<br>
-多くのLLM、特にGPT-4やGeminiのような最新のモデルは、「関数呼び出し（Function Calling）」 または 「ツール呼び出し（Tool Calling）」 と呼ばれる機能に対応しています。この機能は以下のような仕組みで動作します。<br>
-n8nのAIエージェントノードでは、SerpApiなどのツールノードを接続することで、そのツールの機能（例: Google Search）と、必要な引数（例: query）をLLMに伝えることから始めます。<br>
-まず、n8nノードは、ユーザーの入力（例: 今の気温を知りたい）と、上記で定義したツール情報をLLMに送信します。LLMはプロンプトを分析し、「これは外部検索が必要な質問だ」と判断します。<br>
-次に、LLMは直接的な回答を生成するのではなく、「Google Searchというツールをqueryに今の気温という引数で呼び出す」 という形式の特殊なJSONデータやテキストを生成します。<br>
-その後、n8nのAIエージェントノードはLLMから返されたこのJSONを解釈し、LLMが「ツールを呼び出すべき」と判断したと認識し、AIエージェントノードは指定されたツール（SerpApi）と引数（query: '今の気温'）を使って、実際にGoogle検索を実行します。<br>
-Google検索の結果が取得されると、n8nノードはその結果を再びLLMに送ります。<br>
-最終的に、LLMは提供された検索結果を基に、ユーザーにとって自然で分かりやすい最終的な回答（例: 現在の東京の気温は〇〇度です。）を生成します。<br>
+ 最初に、LLMとツールの連携の仕組みについて説明します。<br>
+ 多くのLLM、特にGPT-4やGeminiのような最新のモデルは、「関数呼び出し（Function Calling）」 または 「ツール呼び出し（Tool Calling）」 と呼ばれる機能に対応しています。この機能は以下のような仕組みで動作します。<br>
+ n8nのAIエージェントノードでは、SerpApiなどのツールノードを接続することで、そのツールの機能（例: Google Search）と、必要な引数（例: query）をLLMに伝えることから始めます。<br>
+ まず、n8nノードは、ユーザーの入力（例: 今の気温を知りたい）と、上記で定義したツール情報をLLMに送信します。LLMはプロンプトを分析し、「これは外部検索が必要な質問だ」と判断します。<br>
+ 次に、LLMは直接的な回答を生成するのではなく、「Google Searchというツールをqueryに今の気温という引数で呼び出す」 という形式の特殊なJSONデータやテキストを生成します。<br>
+ その後、n8nのAIエージェントノードはLLMから返されたこのJSONを解釈し、LLMが「ツールを呼び出すべき」と判断したと認識し、AIエージェントノードは指定されたツール（SerpApi）と引数（query: '今の気温'）を使って、実際にGoogle検索を実行します。<br>
+ Google検索の結果が取得されると、n8nノードはその結果を再びLLMに送ります。<br>
+ 最終的に、LLMは提供された検索結果を基に、ユーザーにとって自然で分かりやすい最終的な回答（例: 現在の東京の気温は〇〇度です。）を生成します。<br>
