@@ -29,6 +29,8 @@ spec:
       labels:
         app: n8n
     spec:
+      securityContext:
+        fsGroup: 1000
       containers:
       - image: n8nio/n8n:latest
         name: n8n 
@@ -37,18 +39,19 @@ spec:
         env:
         - name: N8N_BASIC_AUTH_ACTIVE
           value: "true"
-        - name: N8N_BASIC_AUTH_USER
-          value: "n8n"
-        - name: N8N_BASIC_AUTH_PASSWORD
-          value: "n8n"
+        #- name: N8N_BASIC_AUTH_USER
+        #  value: "n8n"
+        #- name: N8N_BASIC_AUTH_PASSWORD
+        #  value: "n8n"
         - name: GENERIC_TIMEZONE
           value: "Asia/Tokyo"
         - name: N8N_SECURE_COOKIE
           value: "false"
         volumeMounts:
         - name: n8n-csi-data
-          mountPath: /root/
+          mountPath: /home/node/.n8n
       volumes:
       - name: n8n-csi-data
+        #emptyDir: {}
         persistentVolumeClaim:
           claimName: pvc-nfs-n8n

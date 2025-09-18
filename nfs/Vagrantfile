@@ -14,10 +14,14 @@ Vagrant.configure("2") do |config|
       apt update
       apt install -y nfs-kernel-server
       mkdir -p /home/vagrant/exports
+      mkdir -p /home/vagrant/exports-n8n
       chown vagrant:vagrant /home/vagrant/exports
+      chown 1000:1000 /home/vagrant/exports-n8n
       chmod 777 /home/vagrant/exports
+      chmod 777 /home/vagrant/exports-n8n
       cat <<EOF >> /etc/exports
 /home/vagrant/exports *(rw,nohide,no_subtree_check)
+/home/vagrant/exports-n8n *(rw,nohide,no_subtree_check)
 EOF
       exportfs -ra
     SHELL
