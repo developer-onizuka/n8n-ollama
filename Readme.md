@@ -98,7 +98,6 @@ If you find the error below, you might need to do "**sudo chown -R 1000:1000 /ho
 ```
 $ kubectl logs n8n-5967965bc6-zwg7n 
 No encryption key found - Auto-generating and saving to: /home/node/.n8n/config
-No encryption key found - Auto-generating and saving to: /home/node/.n8n/config
 Error: EACCES: permission denied, mkdir '/home/node/.n8n'
 ```
 
