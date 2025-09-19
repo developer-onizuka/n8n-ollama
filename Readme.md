@@ -147,7 +147,7 @@ Credentials to connect with: See image below<br><br>
 Type message and send it. So, you can find the picture as following and it means your workfrow works:<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-prompt.png" width="720">
 
-# 6. Google Search Agent
+# 6. AI Agent node with tools
 
 I'll begin by explaining how LLMs and tools work together.Many LLMs, especially modern models like GPT-4 and Gemini, support a feature called Function Calling or Tool Calling. Here's how this process works:<br>
 - First, in an n8n AI agent node, you connect tool nodes such as SerpApi. This action tells the LLM about the tool's functions (e.g., Google Search) and its required arguments (e.g., a query).<br>
