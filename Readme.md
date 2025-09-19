@@ -177,6 +177,12 @@ While the LLM's decision is probabilistic, behind that probability is strong evi
 LLMの判断は確率的なものですが、その確率の背後には、ツール呼び出しが最も合理的で効率的な解決策であるという強い根拠が存在します。したがって、これは単なる「曖昧な推測」ではなく、明確な意図に基づく「論理的な判断」となっています。
 
 
+### 6-1. Chat Memory via MongoDB
+You can use the MongoDB as a chat memory, so that the history will be saved in the MongoDB. See below:<br>
+You should do configure like this.<br>
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-mongodb.png" width="720">
+
+Then, you can find the history of the chat you've made.<br>
 ```
 $ kubectl exec -it mongodb-statefulset-0 -- mongosh --username admin --password password --authenticationDatabase admin
 Current Mongosh Log ID:	68cd2031b32a8de04d4f87fd
@@ -360,3 +366,10 @@ n8n-chat-memory> db.n8n_chat_histories.find()
   }
 ]
 ```
+
+### 6-2. Calculator for LLM
+As you know LLM is not good at mathmatics, so you should deploy the calculator for the case of calculation.<br>
+
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-square-root.png" width="720">
+
+
