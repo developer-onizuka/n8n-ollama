@@ -150,7 +150,10 @@ Type message and send it. So, you can find the picture as following and it means
 
 # 6. AI Agent node with tools
 
-I'll begin by explaining how LLMs and tools work together.Many LLMs, especially modern models like GPT-4 and Gemini, support a feature called Function Calling or Tool Calling. Here's how this process works:<br>
+### 6-1. Google Search for LLM
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-SerpAPI.png" width="720">
+
+I'll begin by explaining how LLMs and tools work together. Many LLMs, especially modern models like GPT-4 and Gemini, support a feature called Function Calling or Tool Calling. Here's how this process works:<br>
 - First, in an n8n AI agent node, you connect tool nodes such as SerpApi. This action tells the LLM about the tool's functions (e.g., Google Search) and its required arguments (e.g., a query).<br>
 - The n8n node then sends the user's input (e.g., "What's the current temperature?") along with the defined tool information to the LLM. The LLM analyzes the prompt and determines that this is a question requiring an external search.<br>
 - Next, instead of generating a direct answer, the LLM produces special JSON data or text. This data takes the form of an instruction to "call the Google Search tool with 'current temperature' as the query."<br>
@@ -176,8 +179,14 @@ While the LLM's decision is probabilistic, behind that probability is strong evi
 これに加え、GPTやGeminiのような最新のLLMは、大量のデータセットで訓練されており、その中には「外部の情報源を参照して質問に答える」というパターンも含まれています。これにより、モデルは「今日の天気は？」といった質問が、単なる知識ではなく、外部ツールを必要とするタスクであることを学習しています。同時に、LLMは、ユーザーのプロンプトの「意図」を分析します。例えば、今日の天気であれば、意図として最新のリアルタイム情報が求められていると分析します。また、日本の首都はどこ？という質問であれば、それは既知の知識で回答可能と判断できます。このプロセスは、まるで人間が「今日の天気は？」と聞かれたときに、頭の中の知識だけで答えず、スマホで天気予報を調べるように、LLMがタスクの性質を理解し、適切なツール（スマホ）を選択するのと似ています。<br>
 LLMの判断は確率的なものですが、その確率の背後には、ツール呼び出しが最も合理的で効率的な解決策であるという強い根拠が存在します。したがって、これは単なる「曖昧な推測」ではなく、明確な意図に基づく「論理的な判断」となっています。
 
+### 6-2. Calculator for LLM
+As you know LLM is not good at mathmatics, so you should deploy the calculator for the case of calculation.<br>
 
-### 6-1. Chat Memory via MongoDB
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-square-root.png" width="720">
+
+
+
+# 7. Chat Memory via MongoDB
 You can use the MongoDB as a chat memory, so that the history will be saved in the MongoDB. See below:<br>
 You should do configure like this.<br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-mongodb.png" width="720">
@@ -366,10 +375,5 @@ n8n-chat-memory> db.n8n_chat_histories.find()
   }
 ]
 ```
-
-### 6-2. Calculator for LLM
-As you know LLM is not good at mathmatics, so you should deploy the calculator for the case of calculation.<br>
-
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-square-root.png" width="720">
 
 
