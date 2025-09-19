@@ -114,10 +114,10 @@ svc-ollama   ClusterIP      10.104.132.75   <none>         11434/TCP        5m22
 ```
 # 3. Download the model in Ollama as n8n backend
 ```
-kubectl exec -it <your-ollama-pod-name> -- ollama pull gemma3:1b
+kubectl exec -it <your-ollama-pod-name> -- ollama pull llama3.2:3b
 ```
 ```
-$ kubectl exec -it pods/ollama-6c988c64c6-gzsck -- ollama pull gemma3:1b
+$ kubectl exec -it pods/ollama-6c988c64c6-gzsck -- ollama pull llama3.2:3b
 pulling manifest 
 pulling 7cd4618c1faf: 100% ▕██████████████████████████████████████▏ 815 MB                         
 pulling e0a42594d802: 100% ▕██████████████████████████████████████▏  358 B                         
