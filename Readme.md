@@ -117,16 +117,17 @@ svc-ollama   ClusterIP      10.104.132.75   <none>         11434/TCP        5m22
 kubectl exec -it <your-ollama-pod-name> -- ollama pull llama3.2:3b
 ```
 ```
-$ kubectl exec -it pods/ollama-6c988c64c6-gzsck -- ollama pull llama3.2:3b
+$ kubectl exec -it pods/ollama-6c988c64c6-7fxfp -- ollama pull llama3.2:3b
 pulling manifest 
-pulling 7cd4618c1faf: 100% ▕██████████████████████████████████████▏ 815 MB                         
-pulling e0a42594d802: 100% ▕██████████████████████████████████████▏  358 B                         
-pulling dd084c7d92a3: 100% ▕██████████████████████████████████████▏ 8.4 KB                         
-pulling 3116c5225075: 100% ▕██████████████████████████████████████▏   77 B                         
-pulling 120007c81bf8: 100% ▕██████████████████████████████████████▏  492 B                         
+pulling dde5aa3fc5ff: 100% ▕██████████████████████████████████████▏ 2.0 GB                         
+pulling 966de95ca8a6: 100% ▕██████████████████████████████████████▏ 1.4 KB                         
+pulling fcc5a6bec9da: 100% ▕██████████████████████████████████████▏ 7.7 KB                         
+pulling a70ff7e570d9: 100% ▕██████████████████████████████████████▏ 6.0 KB                         
+pulling 56bb8bd477a5: 100% ▕██████████████████████████████████████▏   96 B                         
+pulling 34bb5ab01051: 100% ▕██████████████████████████████████████▏  561 B                         
 verifying sha256 digest 
 writing manifest 
-success 
+success
 ```
 # 4. Create Workflow with n8n
 ### 4-1. Click Create Workflow
