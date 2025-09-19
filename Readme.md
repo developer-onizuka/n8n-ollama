@@ -175,3 +175,27 @@ While the LLM's decision is probabilistic, behind that probability is strong evi
 これに加え、GPTやGeminiのような最新のLLMは、大量のデータセットで訓練されており、その中には「外部の情報源を参照して質問に答える」というパターンも含まれています。これにより、モデルは「今日の天気は？」といった質問が、単なる知識ではなく、外部ツールを必要とするタスクであることを学習しています。同時に、LLMは、ユーザーのプロンプトの「意図」を分析します。例えば、今日の天気であれば、意図として最新のリアルタイム情報が求められていると分析します。また、日本の首都はどこ？という質問であれば、それは既知の知識で回答可能と判断できます。このプロセスは、まるで人間が「今日の天気は？」と聞かれたときに、頭の中の知識だけで答えず、スマホで天気予報を調べるように、LLMがタスクの性質を理解し、適切なツール（スマホ）を選択するのと似ています。<br>
 LLMの判断は確率的なものですが、その確率の背後には、ツール呼び出しが最も合理的で効率的な解決策であるという強い根拠が存在します。したがって、これは単なる「曖昧な推測」ではなく、明確な意図に基づく「論理的な判断」となっています。
 
+
+```
+$ kubectl exec -it mongodb-statefulset-0 -- mongosh --username admin --password password --authenticationDatabase admin
+Current Mongosh Log ID:	68cd2031b32a8de04d4f87fd
+Connecting to:		mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&authSource=admin&appName=mongosh+2.5.8
+Using MongoDB:		8.0.13
+Using Mongosh:		2.5.8
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2025-09-19T09:18:33.985+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2025-09-19T09:18:33.985+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2025-09-19T09:18:33.985+00:00: We suggest setting the contents of sysfsFile to 0.
+   2025-09-19T09:18:33.985+00:00: vm.max_map_count is too low
+------
+
+test> show dbs
+admin            100.00 KiB
+config            12.00 KiB
+local             72.00 KiB
+n8n-chat-memory    8.00 KiB
+```
