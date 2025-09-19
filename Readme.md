@@ -200,3 +200,163 @@ config            12.00 KiB
 local             72.00 KiB
 n8n-chat-memory    8.00 KiB
 ```
+```
+test> use n8n-chat-memory
+switched to db n8n-chat-memory
+n8n-chat-memory> show collections
+chat_sessions
+n8n_chat_histories
+n8n-chat-memory> db.n8n_chat_histories.find()
+[
+  {
+    _id: ObjectId('68cd2e8410810d0090fabc4b'),
+    sessionId: '7973f3ebff8c4f519862adf2bd4ba4c8',
+    messages: [
+      {
+        type: 'human',
+        data: {
+          content: '## Steps to follow\n' +
+            '\n' +
+            '1. Skip \n' +
+            '\n' +
+            '\n' +
+            '2. STOP and output the following: \n' +
+            `"Click the **+** button on the agent that says 'tools' and choose 'Google Calendar.'" \n` +
+            ' ----- IGNORE BELOW -----\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '8. If all steps are completed, output the following:\n' +
+            '"Would you like me to check all events in your calendar for tomorrow 2025-09-20?"\n' +
+            '\n' +
+            '# User message\n' +
+            '\n' +
+            'Hello. My name is developer-onizuka.',
+          additional_kwargs: {},
+          response_metadata: {}
+        }
+      },
+      {
+        type: 'ai',
+        data: {
+          content: "Nice to meet you, Developer-Onizuka! 👋 Let's get started with setting up our schedule. Please click the **+** button on the agent that says 'tools' and choose 'Google Calendar'. ✨",
+          tool_calls: [],
+          invalid_tool_calls: [],
+          additional_kwargs: {},
+          response_metadata: {}
+        }
+      },
+      {
+        type: 'human',
+        data: {
+          content: '## Steps to follow\n' +
+            '\n' +
+            '1. Skip \n' +
+            '\n' +
+            '\n' +
+            '2. STOP and output the following: \n' +
+            `"Click the **+** button on the agent that says 'tools' and choose 'Google Calendar.'" \n` +
+            ' ----- IGNORE BELOW -----\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '8. If all steps are completed, output the following:\n' +
+            '"Would you like me to check all events in your calendar for tomorrow 2025-09-20?"\n' +
+            '\n' +
+            '# User message\n' +
+            '\n' +
+            'Do you remember my name?',
+          additional_kwargs: {},
+          response_metadata: {}
+        }
+      },
+      {
+        type: 'ai',
+        data: {
+          content: "I'm sorry that slips my mind! Let's get back on track. Click the **+** button on the agent that says 'tools' and choose 'Google Calendar'. ✨",
+          tool_calls: [],
+          invalid_tool_calls: [],
+          additional_kwargs: {},
+          response_metadata: {}
+        }
+      },
+      {
+        type: 'human',
+        data: {
+          content: '## Steps to follow\n' +
+            '\n' +
+            '1. Skip \n' +
+            '\n' +
+            '\n' +
+            '2. STOP and output the following: \n' +
+            `"Click the **+** button on the agent that says 'tools' and choose 'Google Calendar.'" \n` +
+            ' ----- IGNORE BELOW -----\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '\n' +
+            '8. If all steps are completed, output the following:\n' +
+            '"Would you like me to check all events in your calendar for tomorrow 2025-09-20?"\n' +
+            '\n' +
+            '# User message\n' +
+            '\n' +
+            'Do you remember my name?',
+          additional_kwargs: {},
+          response_metadata: {}
+        }
+      },
+      {
+        type: 'ai',
+        data: {
+          content: "My apologies again! Yes, I recall that it's developer-onizuka. Please click the **+** button on the agent that says 'tools' and choose 'Google Calendar'. ✨",
+          tool_calls: [],
+          invalid_tool_calls: [],
+          additional_kwargs: {},
+          response_metadata: {}
+        }
+      }
+    ]
+  }
+]
+```
