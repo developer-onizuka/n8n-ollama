@@ -376,4 +376,7 @@ n8n-chat-memory> db.n8n_chat_histories.find()
 ]
 ```
 
+# 8. AI Agent for Searching Restaurants
+
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-restaurant.png" width="720">
 
