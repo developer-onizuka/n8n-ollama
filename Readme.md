@@ -166,18 +166,7 @@ To be more specific, the n8n node sends the LLM not only the user's input but al
 In addition, modern LLMs like GPT and Gemini are trained on massive datasets that include patterns of answering questions by referencing external sources. This teaches the model that questions like "What's the weather today?" are tasks that require an external tool, not just internal knowledge. At the same time, the LLM analyzes the user's intent from the prompt. For "What's the weather today?", it analyzes the intent as a request for the latest real-time information. For a question like "What is the capital of Japan?", it can determine that the answer is based on known knowledge. This process is similar to how a person, when asked "What's the weather today?", wouldn't just rely on their memory but would instead check a weather app on their phone. The LLM understands the nature of the task and selects the appropriate tool, just like a person would choose their phone.<br>
 While the LLM's decision is probabilistic, behind that probability is strong evidence that calling a tool is the most rational and efficient solution. Therefore, it's not just a vague guess; it's a logical judgment based on a clear intent.<br><br>
 
-最初に、LLMとツールの連携の仕組みについて説明します。多くのLLM、特にGPT-4やGeminiのような最新のモデルは、「関数呼び出し（Function Calling）」 または 「ツール呼び出し（Tool Calling）」 と呼ばれる機能に対応しています。この機能は以下のような仕組みで動作します。
-- n8nのAIエージェントノードでは、SerpApiなどのツールノードを接続することで、そのツールの機能（例: Google Search）と、必要な引数（例: query）をLLMに伝えることから始めます。<br>
-- まず、n8nノードは、ユーザーの入力（例: 今の気温を知りたい）と、上記で定義したツール情報をLLMに送信します。LLMはプロンプトを分析し、「これは外部検索が必要な質問だ」と判断します。<br>
-- 次に、LLMは直接的な回答を生成するのではなく、「Google Searchというツールをqueryに今の気温という引数で呼び出す」 という形式の特殊なJSONデータやテキストを生成します。<br>
-- その後、n8nのAIエージェントノードはLLMから返されたこのJSONを解釈し、LLMが「ツールを呼び出すべき」と判断したと認識し、AIエージェントノードは指定されたツール（SerpApi）と引数（query: '今の気温'）を使って、実際にGoogle検索を実行します。<br>
-- Google検索の結果が取得されると、n8nノードはその結果を再びLLMに送ります。<br>
-- 最終的に、LLMは提供された検索結果を基に、ユーザーにとって自然で分かりやすい最終的な回答（例: 現在の東京の気温は〇〇度です。）を生成します。<br>
 
-なお、LLMが「ツールを呼び出すべき」と判断する過程は、一見すると曖昧なプロセスのように感じますが、そうではなく、モデルの訓練データと、Tool Calling機能の設計に基づいた論理的な推論プロセスです。これは、LLMが単語の確率論的予測を行うだけでなく、複雑なタスクを分解し、どのツールがそのタスクを解決するために最も適しているかを判断する能力を持っているためです。<br>
-もう少し詳しく説明すると、n8nのノードは、LLMにユーザーの入力だけでなく、利用可能なツールの機能（例: Google Search、image_generatorなど）と、それらがどのような目的で使われるべきかの説明を同時に渡します。この情報が、LLMの推論をガイドする「明確なルールセット」となります。例えば、Google Searchツールには「最新の情報、リアルタイムデータ、ウェブサイトのコンテンツを検索するために使ってください」といった説明が付与されます。<br>
-これに加え、GPTやGeminiのような最新のLLMは、大量のデータセットで訓練されており、その中には「外部の情報源を参照して質問に答える」というパターンも含まれています。これにより、モデルは「今日の天気は？」といった質問が、単なる知識ではなく、外部ツールを必要とするタスクであることを学習しています。同時に、LLMは、ユーザーのプロンプトの「意図」を分析します。例えば、今日の天気であれば、意図として最新のリアルタイム情報が求められていると分析します。また、日本の首都はどこ？という質問であれば、それは既知の知識で回答可能と判断できます。このプロセスは、まるで人間が「今日の天気は？」と聞かれたときに、頭の中の知識だけで答えず、スマホで天気予報を調べるように、LLMがタスクの性質を理解し、適切なツール（スマホ）を選択するのと似ています。<br>
-LLMの判断は確率的なものですが、その確率の背後には、ツール呼び出しが最も合理的で効率的な解決策であるという強い根拠が存在します。したがって、これは単なる「曖昧な推測」ではなく、明確な意図に基づく「論理的な判断」となっています。
 
 ### 6-2. Calculator for LLM
 As you know LLM is not good at mathmatics, so you should deploy the calculator for the case of calculation.<br>
@@ -187,11 +176,22 @@ As you know LLM is not good at mathmatics, so you should deploy the calculator f
 
 
 # 7. Chat Memory via MongoDB
+
+### 7-1. Roll out MongoDB with a perpetual disk
+```
+kubectl apply -f storageclass-vm-nfs-n8n.yaml
+kubectl apply -f pvc-nfs-mongodb.yaml
+kubectl apply -f mongodb.yaml
+```
+
+### 7-2. Connect MongoDB with AI Agent Node
 You can use the MongoDB as a chat memory, so that the history will be saved in the MongoDB. See below:<br>
 You should do configure like this.<br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-mongodb.png" width="720">
 
-Then, you can find the history of the chat you've made.<br>
+
+After that, you can see some messages based on previous conversation with LLM.<br>
+You can also find the history of the chat you've made.<br>
 ```
 $ kubectl exec -it mongodb-statefulset-0 -- mongosh --username admin --password password --authenticationDatabase admin
 Current Mongosh Log ID:	68cd2031b32a8de04d4f87fd
