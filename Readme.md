@@ -254,3 +254,27 @@ If the input string is Unicode escaped, please decode and process it correctly. 
 
 ### 8-7. Read/Write Files from Disk
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/write-file.png" width="720">
+
+### 8-8. Check the result
+```
+kubectl exec -it <the-pod-name-for-n8n> -- cat /tmp/file.txt
+```
+```
+#1 レストラン香港 日本式洋食レストラン
+#2 主菜 (ありますか?) 
+#3 ターゲット カスタマー 
+#4 価格 Range 
+#5 最寄り駅 : 都営大江戸線落合南長崎駅
+
+#1 エシャロット フランス料理店
+#2 メニュは、フランスのクラシックカーニバル、海鮮デリシャス、ヨーグルトとドレスिंングのためのエッセンスが含まれます。
+#3 テーケスト クラスター：エトリアン、フランス人、ファミリー
+#4 Price Range: 8,000 - 20,000円（メニュー）
+#5 最寄りの駅: 新宿駅（約200m）
+
+#1 ぺいざん
+#2 カモメ（カリフラワー）&トランプルカ、ハンバーグ&ポークバンマス、ウナギ、ビーフミックスボール、パスタなど
+#3 ターゲットカスタマー は日本人や洋食を愛する日本国外の出身者、特にアメリカ系やイギリス系の留学生などの若い大衆
+#4 Price Range 高値（約 2,000 - 5,000 JPY）から中価値（約 1,500 - 3,000 JPY）まで
+#5 The nearest station 新宿駅（JR山手線・新宿線、東京メトロ日暮里線）
+```
