@@ -138,7 +138,7 @@ Drow like below and select the Ollama Chat Model.:<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-myflow.png" width="720">
 
 Set the following:
-Model: "gemma3:1b"<br><br>
+Model: "llama3.2:3b"<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-model.png" width="720">
 
 Credentials to connect with: See image below<br><br>
