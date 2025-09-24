@@ -234,6 +234,7 @@ JSON:
 You should attach the Ollama Chat Model as brain and the SerAPI tool for google search like #6-1.<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/ai-agent.png" width="720">
 
+System Message:
 ```
 You are an expert on restaurant information. Using the provided information and, if necessary, internet searches, please create a response in the following format:
 
