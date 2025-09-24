@@ -150,7 +150,7 @@ Type message and send it. So, you can find the picture as following and it means
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-SerpAPI.png" width="720">
 
 I'll begin by explaining how LLMs and tools work together. Many LLMs, especially modern models like GPT-4 and Gemini, support a feature called Function Calling or Tool Calling. Here's how this process works:<br>
-- First, in an n8n AI agent node, you connect tool nodes such as SerpApi. This action tells the LLM about the tool's functions (e.g., Google Search) and its required arguments (e.g., a query).<br>
+- First, in an n8n **AI agent node** (not Basic Chain in like #4), you connect tool nodes such as SerpApi. This action tells the LLM about the tool's functions (e.g., Google Search) and its required arguments (e.g., a query).<br>
 - The n8n node then sends the user's input (e.g., "What's the current temperature?") along with the defined tool information to the LLM. The LLM analyzes the prompt and determines that this is a question requiring an external search.<br>
 - Next, instead of generating a direct answer, the LLM produces special JSON data or text. This data takes the form of an instruction to "call the Google Search tool with 'current temperature' as the query."<br>
 - Afterward, the n8n AI agent node interprets the JSON from the LLM. It recognizes that the LLM has decided a tool should be called. The n8n node then uses the specified tool (SerpApi) and arguments (query: 'current temperature') to actually perform the Google search.<br>
