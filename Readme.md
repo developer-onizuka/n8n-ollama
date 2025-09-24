@@ -129,8 +129,9 @@ verifying sha256 digest
 writing manifest 
 success
 ```
-# 4. Create Workflow with n8n
+# 4. Create Workflow with n8n as tests
 ### 4-1. Click Create Workflow
+Go to 192.168.33.2 with your browser so that you can login to the n8n page.:<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-create-workflow.png" width="720">
 
 ### 4-2. Add first step
@@ -140,7 +141,7 @@ Drow like below and select the Ollama Chat Model.:<br><br>
 Credentials to connect with: See image below<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-ollama.png" width="720">
 
-# 5. Testing your workflow
+# 5. Run your workflow
 Type message and send it. So, you can find the picture as following and it means your workfrow works:<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-prompt.png" width="720">
 
@@ -162,16 +163,14 @@ To be more specific, the n8n node sends the LLM not only the user's input but al
 In addition, modern LLMs like GPT and Gemini are trained on massive datasets that include patterns of answering questions by referencing external sources. This teaches the model that questions like "What's the weather today?" are tasks that require an external tool, not just internal knowledge. At the same time, the LLM analyzes the user's intent from the prompt. For "What's the weather today?", it analyzes the intent as a request for the latest real-time information. For a question like "What is the capital of Japan?", it can determine that the answer is based on known knowledge. This process is similar to how a person, when asked "What's the weather today?", wouldn't just rely on their memory but would instead check a weather app on their phone. The LLM understands the nature of the task and selects the appropriate tool, just like a person would choose their phone.<br>
 While the LLM's decision is probabilistic, behind that probability is strong evidence that calling a tool is the most rational and efficient solution. Therefore, it's not just a vague guess; it's a logical judgment based on a clear intent.<br><br>
 
-
-
 ### 6-2. Calculator for LLM
 As you know LLM is not good at mathmatics, so you should deploy the calculator for the case of calculation.<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-square-root.png" width="720">
 
-
+### 6-3. etc
+You can find so many tools in n8n.<br>
 
 # 7. Chat Memory via MongoDB
-
 ### 7-1. Roll out MongoDB with a perpetual disk
 ```
 kubectl apply -f storageclass-vm-nfs-n8n.yaml
