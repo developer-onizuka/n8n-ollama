@@ -165,8 +165,7 @@ While the LLM's decision is probabilistic, behind that probability is strong evi
 
 
 ### 6-2. Calculator for LLM
-As you know LLM is not good at mathmatics, so you should deploy the calculator for the case of calculation.<br>
-
+As you know LLM is not good at mathmatics, so you should deploy the calculator for the case of calculation.<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-square-root.png" width="720">
 
 
@@ -182,7 +181,7 @@ kubectl apply -f mongodb.yaml
 
 ### 7-2. Connect MongoDB with AI Agent Node
 You can use the MongoDB as a chat memory, so that the history will be saved in the MongoDB. See below:<br>
-You should do configure like this.<br>
+You should do configure like this.<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-mongodb.png" width="720">
 
 
@@ -199,6 +198,6 @@ n8n-chat-memory> db.n8n_chat_histories.find()
 ```
 
 # 8. AI Agent for Searching Restaurants
-Now, based on what we know so far, let's create a real working AI Agent.<br>
+Now, based on what we know so far, let's create a real working AI Agent.<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-restaurant.png" width="720">
 
