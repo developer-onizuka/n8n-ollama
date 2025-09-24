@@ -201,3 +201,55 @@ n8n-chat-memory> db.n8n_chat_histories.find()
 Now, based on what we know so far, let's create a real working AI Agent.<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-restaurant.png" width="720">
 
+### 8-1. Trigger manually
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/trigger-manually.png" width="720">
+
+### 8-2. HTTP Request
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/http-request.png" width="720">
+
+URL:
+```
+https://api.apify.com/v2/acts/lukaskrivka~google-maps-with-contact-details/run-sync-get-dataset-items?token=<your-token>
+```
+JSON:
+```
+{
+    "language": "ja",
+    "locationQuery": "{{ $json.location }}",
+    "maxCrawledPlacesPerSearch": 3,
+    "searchStringsArray": [
+        "{{ $json.query }}"
+    ],
+    "skipClosedPlaces": false
+}
+```
+
+### 8-3. Loop over items
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/loop-over-items.png" width="720">
+
+### 8-4. Edit Fields
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/edit-field.png" width="720">
+
+### 8-5. AI Agent
+You should attach the Ollama Chat Model as brain and the SerAPI tool for google search like #6-1.<br><br>
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/ai-agent.png" width="720">
+
+```
+You are an expert on restaurant information. Using the provided information and, if necessary, internet searches, please create a response in the following format:
+
+#1 The name of restaurant: <name>
+#2 Main Menu: <menu>
+#3 Target Customers: <customer base>
+#4 Price Range: <price range>
+#5 The nearest station: <name>
+If the information is insufficient, please state clearly, "Information is insufficient and I cannot answer."
+
+When generating the response, you may use internal thought processes and tools (e.g., search tools), but do not include their content in the final answer. 
+If the input string is Unicode escaped, please decode and process it correctly. Be sure to include two line breaks at the end. Present only the final answer to the user in Japanese.
+```
+
+### 8-6. Convert to File
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/convert-to-file.png" width="720">
+
+### 8-7. Read/Write Files from Disk
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/write-file.png" width="720">
