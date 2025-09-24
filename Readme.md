@@ -199,13 +199,13 @@ n8n-chat-memory> db.n8n_chat_histories.find()
 
 # 8. AI Agent for Searching Restaurants
 Now, based on what we know so far, let's create a real working AI Agent.<br><br>
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-restaurant.png" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-restaurant.png" width="960">
 
 ### 8-1. Trigger manually
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/trigger-manually.png" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/trigger-manually.png" width="960">
 
 ### 8-2. HTTP Request
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/http-request.png" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/http-request.png" width="960">
 
 URL:
 ```
@@ -225,14 +225,14 @@ JSON:
 ```
 
 ### 8-3. Loop over items
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/loop-over-items.png" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/loop-over-items.png" width="960">
 
 ### 8-4. Edit Fields
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/edit-field.png" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/edit-field.png" width="960">
 
 ### 8-5. AI Agent
 You should attach the Ollama Chat Model as brain and the SerAPI tool for google search like #6-1.<br><br>
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/ai-agent.png" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/ai-agent.png" width="960">
 
 System Message:
 ```
@@ -250,10 +250,10 @@ If the input string is Unicode escaped, please decode and process it correctly. 
 ```
 
 ### 8-6. Convert to File
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/convert-to-file.png" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/convert-to-file.png" width="960">
 
 ### 8-7. Read/Write Files from Disk
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/write-file.png" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/write-file.png" width="960">
 
 ### 8-8. Check the result
 ```
