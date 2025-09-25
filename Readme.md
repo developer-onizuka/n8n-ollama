@@ -315,4 +315,4 @@ Use the pdf file below:<br>
 
 
 ### 9-5. Check the result
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-result.png" width="480">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-result.png" width="540">
