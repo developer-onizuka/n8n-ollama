@@ -279,13 +279,16 @@ kubectl exec -it <the-pod-name-for-n8n> -- cat /tmp/file.txt
 ```
 
 # 9. AI Agent for RAG
+n8n has several mechanisms for creating chatbots that use RAG (RAG chatbots). This time, we will introduce and explain what is probably the easiest way.
+Specifically, we will create a RAG chatbot using a node called "Simple Vector Store". The completed workflow is shown below.<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-rag.png" width="960">
 
 ### 9-1. On form submission
+This is a core node that can start a workflow when form input is submitted.<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-on-form-submission.png" width="480">
 
 ### 9-2. Simple Vector Store
-Download the open embedding model with a large token context window.<br>
+Download the open embedding model with a large token context window, so that you can select LLM for simple vector store. The nomic-embed-text is an open-source, high-performance text embedding model developed by Nomic AI that is used to convert text data into a numerical representation (vectors) that can be used in tasks such as search, classification, and clustering.<br><br>
 ```
 $ kubectl exec -it pods/ollama-6c988c64c6-qgsdm -- ollama pull nomic-embed-text:latest
 pulling manifest 
@@ -297,10 +300,10 @@ verifying sha256 digest
 writing manifest 
 success 
 ```
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="320">
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama.png" width="320">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="320"> <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama.png" width="320">
 
 ### 9-3. AI Agent
+This is the AI Agent which uses vector store and it works as a chat bot powered by RAG.<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-simple-vector-store.png" width="320">
 
 Description:
