@@ -282,7 +282,7 @@ kubectl exec -it <the-pod-name-for-n8n> -- cat /tmp/file.txt
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-rag.png" width="960">
 
 ### 9-1. On form submission
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-on-form-submission.png" width="480">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-on-form-submission.png" width="240">
 
 ### 9-2. Simple Vector Store
 Download the open embedding model with a large token context window.<br>
@@ -297,11 +297,11 @@ verifying sha256 digest
 writing manifest 
 success 
 ```
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="480">
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama.png" width="480">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="240">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama.png" width="240">
 
 ### 9-3. AI Agent
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-simple-vector-store.png" width="480">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-simple-vector-store.png" width="240">
 
 Description:
 ```
@@ -311,7 +311,7 @@ Description:
 Use the pdf file below:<br>
 - https://github.com/developer-onizuka/LangChain/blob/main/myFirstPdf.pdf
 
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-upload-pdf.png" width="480">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-upload-pdf.png" width="240">
 
 
 ### 9-5. Check the result
