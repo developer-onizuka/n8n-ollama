@@ -277,3 +277,21 @@ kubectl exec -it <the-pod-name-for-n8n> -- cat /tmp/file.txt
 #4 Price Range 高値（約 2,000 - 5,000 JPY）から中価値（約 1,500 - 3,000 JPY）まで
 #5 The nearest station 新宿駅（JR山手線・新宿線、東京メトロ日暮里線）
 ```
+
+# 9. AI Agent for RAG
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-rag.png" width="960">
+
+### 9-1. On form submission
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-on-form-submission.png" width="960">
+
+### 9-2. Simple Vector Store
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama" width="720">
+
+### 9-3.  AI Agent
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-simple-vector-store.png" width="720">
+
+Description:
+```
+保存されてるナレッジを使用して、ユーザーからの質問に回答してください。
+```
