@@ -282,14 +282,14 @@ kubectl exec -it <the-pod-name-for-n8n> -- cat /tmp/file.txt
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-rag.png" width="960">
 
 ### 9-1. On form submission
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-on-form-submission.png" width="960">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-on-form-submission.png" width="480">
 
 ### 9-2. Simple Vector Store
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="720">
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="480">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama" width="480">
 
 ### 9-3.  AI Agent
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-simple-vector-store.png" width="720">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-simple-vector-store.png" width="480">
 
 Description:
 ```
