@@ -303,7 +303,7 @@ success
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama.png" width="320"> <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="320">
 
 ### 9-3. AI Agent
-This is the AI Agent which uses vector store and it works as a chat bot powered by RAG.<br><br>
+This is the AI Agent which uses vector store and it works as a chatbot powered by RAG.<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-simple-vector-store.png" width="320">
 
 Description:
