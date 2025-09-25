@@ -285,13 +285,34 @@ kubectl exec -it <the-pod-name-for-n8n> -- cat /tmp/file.txt
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-on-form-submission.png" width="480">
 
 ### 9-2. Simple Vector Store
+Download the open embedding model with a large token context window.<br>
+```
+$ kubectl exec -it pods/ollama-6c988c64c6-qgsdm -- ollama pull nomic-embed-text:latest
+pulling manifest 
+pulling 970aa74c0a90: 100% ▕██████████████████████████████████████▏ 274 MB                         
+pulling c71d239df917: 100% ▕██████████████████████████████████████▏  11 KB                         
+pulling ce4a164fc046: 100% ▕██████████████████████████████████████▏   17 B                         
+pulling 31df23ea7daa: 100% ▕██████████████████████████████████████▏  420 B                         
+verifying sha256 digest 
+writing manifest 
+success 
+```
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="480">
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama.png" width="480">
 
-### 9-3.  AI Agent
+### 9-3. AI Agent
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-simple-vector-store.png" width="480">
 
 Description:
 ```
 保存されてるナレッジを使用して、ユーザーからの質問に回答してください。
 ```
+### 9-4. Upload pdf file and run the AI Agent
+Use the pdf file below:<br>
+- https://github.com/developer-onizuka/LangChain/blob/main/myFirstPdf.pdf
+
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-upload-pdf.png" width="480">
+
+
+### 9-5. Check the result
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-result.png" width="480">
