@@ -300,7 +300,7 @@ verifying sha256 digest
 writing manifest 
 success 
 ```
-<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="320"> <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama.png" width="320">
+<img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-embeddings-ollama.png" width="320"> <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/rag-default-data-loader.png" width="320">
 
 ### 9-3. AI Agent
 This is the AI Agent which uses vector store and it works as a chat bot powered by RAG.<br><br>
