@@ -39,10 +39,12 @@ spec:
         env:
         - name: N8N_BASIC_AUTH_ACTIVE
           value: "true"
-        #- name: N8N_BASIC_AUTH_USER
-        #  value: "n8n"
-        #- name: N8N_BASIC_AUTH_PASSWORD
-        #  value: "n8n"
+        - name: N8N_BASE_URL
+          value: http://192.168.33.2:5678/
+        - name: N8N_HOST
+          value: 192.168.33.2 
+        - name: N8N_PORT
+          value: "5678"
         - name: GENERIC_TIMEZONE
           value: "Asia/Tokyo"
         - name: N8N_SECURE_COOKIE
