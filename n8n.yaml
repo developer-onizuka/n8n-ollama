@@ -31,6 +31,15 @@ spec:
     spec:
       securityContext:
         fsGroup: 1000
+      initContainers:
+      - name: install-deps
+        image: n8nio/n8n:latest 
+        volumeMounts:
+        - name: n8n-csi-data
+          mountPath: /home/node/.n8n
+        command: ['/bin/sh', '-c']
+        args:
+          - cd /home/node/.n8n && npm install uuid; 
       containers:
       - image: n8nio/n8n:latest
         name: n8n 
@@ -49,6 +58,8 @@ spec:
           value: "Asia/Tokyo"
         - name: N8N_SECURE_COOKIE
           value: "false"
+        - name: NODE_FUNCTION_ALLOW_EXTERNAL
+          value: "uuid"
         volumeMounts:
         - name: n8n-csi-data
           mountPath: /home/node/.n8n
