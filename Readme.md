@@ -130,11 +130,27 @@ writing manifest
 success
 ```
 # 4. Create Workflow with n8n as tests
-### 4-1. Click Create Workflow
-Go to 192.168.33.2 with your browser so that you can login to the n8n page.:<br><br>
+### 4-1. Check the tunnel URL
+```
+$ kubectl logs n8n-5f5c8cb87c-xwqw8 --follow
+Permissions 0660 for n8n settings file /home/node/.n8n/config are too wide. Changing permissions to 0600..
+Initializing n8n process
+n8n ready on ::, port 5678
+n8n Task Broker ready on 127.0.0.1, port 5679
+[license SDK] Skipping renewal on init: license cert is not initialized
+Registered runner "JS Task Runner" (VHheNdOPg6bwO6h4EnKaU) 
+[Data table] The Data table module is experimental and subject to change.
+Any tables added before the official release may become inaccessible at any point. Use at your own risk.
+
+Waiting for tunnel ...
+Tunnel URL: https://orange-eagle-76.hooks.n8n.cloud/
+```
+
+### 4-2. Click Create Workflow
+Go to the result of above with your browser so that you can login to the n8n page.:<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-create-workflow.png" width="720">
 
-### 4-2. Add first step
+### 4-3. Add first step
 Drow like below and select the Ollama Chat Model.:<br><br>
 <img src="https://github.com/developer-onizuka/n8n-ollama/blob/main/n8n-myflow.png" width="720">
 
