@@ -324,7 +324,7 @@ This is the AI Agent which uses vector store and it works as a chatbot powered b
 
 Description:
 ```
-保存されてるナレッジを使用して、ユーザーからの質問に回答してください。
+保存されているナレッジを使用して、ユーザーからの質問に回答してください。
 ```
 ### 9-4. Upload pdf file and run the AI Agent
 Use the pdf file below:<br>
